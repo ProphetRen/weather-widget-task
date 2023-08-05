@@ -9,6 +9,7 @@
 <script>
 import CityWeatherInfo from "@/components/CityWeatherInfo";
 import GearButton from "@/ui/GearButton";
+import {sortCards} from "@/helpers/commonHelpers";
 
 export default {
   components: {CityWeatherInfo, GearButton},
@@ -17,9 +18,14 @@ export default {
   methods: {
     switchToSettings() {
       this.$emit('switchToSettings')
+    },
+    sortCitiesWeather() {
+      this.citiesWeather.sort(sortCards)
     }
   },
-
+  updated() {
+    this.sortCitiesWeather()
+  }
 }
 </script>
 
